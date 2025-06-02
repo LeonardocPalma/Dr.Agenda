@@ -62,7 +62,7 @@ const SignUpForm = () => {
           router.push("/dashboard");
         },
         onError: (ctx) => {
-          if (ctx.error.code === "EMAIL_ALREADY_EXISTS") {
+          if (ctx.error.code === "USER_ALREADY_EXISTS") {
             toast.error(
               "E-mail já cadastrado. Tente fazer login ou use outro e-mail.",
             );
