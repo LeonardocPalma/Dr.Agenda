@@ -10,6 +10,12 @@ export const auth = betterAuth({
     usePlural: true, // Use plural table names
     schema, // Your Drizzle schema
   }),
+  socialProviders: {
+    google: {
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    },
+  },
   user: {
     modelName: "usersTable", // Name of the user model
   },
