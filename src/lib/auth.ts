@@ -25,11 +25,13 @@ export const auth = betterAuth({
         where: eq(usersToClinicsTable.userId, user.id),
         with: { clinic: true },
       });
-      const clinic = clinics[0];
+      const clinic = clinics?.[0];
       return {
         user: {
           ...user,
-          clinic: { id: clinic.clinicId, name: clinic.clinic.name },
+          clinic: clinic?.clinicId
+            ? { id: clinic?.clinicId, name: clinic?.clinic.name }
+            : undefined,
         },
         session,
       };
